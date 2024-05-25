@@ -9,7 +9,6 @@ import '../blocs/bloc.dart';
 import '../calculations/calculations.dart';
 import '../fontsColorsETC.dart';
 import '../screens/PopUp.dart';
-import 'gpa.dart';
 
 int subjectCount = 1;
 MyCalculation calculation = MyCalculation();
@@ -20,6 +19,7 @@ TextEditingController regno = TextEditingController();
 bool? enableCalculateButton;
 
 class Calculation {
+    final String regno;
   final String fname;
   final String creditHours;
   final String qualityPoints;
@@ -29,6 +29,7 @@ class Calculation {
   final String gpaStr;
 
   Calculation({
+     required this.regno,
     required this.fname,
     required this.creditHours,
     required this.qualityPoints,
@@ -65,6 +66,7 @@ class _GpaState extends State<Gpa> with AutomaticKeepAliveClientMixin<Gpa> {
     List<Map<String, dynamic>> results = await _loadResults();
 
     Map<String, dynamic> newResult = {
+      'regno': regno.text,
       'fname': fname.text,
       'creditHours': calculation.creditHours,
       'qualityPoints': calculation.qualityPoints,
@@ -82,6 +84,7 @@ class _GpaState extends State<Gpa> with AutomaticKeepAliveClientMixin<Gpa> {
 
   void _addResult() async {
     Calculation newCalculation = Calculation(
+      regno:regno.text,
       fname: fname.text,
       creditHours: calculation.creditHours.toString(),
       qualityPoints: calculation.qualityPoints.toString(),
@@ -241,7 +244,18 @@ class _GpaState extends State<Gpa> with AutomaticKeepAliveClientMixin<Gpa> {
                   border: InputBorder.none,
                   hintText: 'Full Name',
                   hintStyle:
-                      TextStyle(fontFamily: numberFont, color: numberColor)),
+                      TextStyle(fontFamily: headerFont, color: numberColor)),
+              autofocus: true,
+              style: TextStyle(fontFamily: numberFont, color: numberColor),
+              keyboardType: TextInputType.text,
+            ),
+            TextField(
+              controller: regno,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Reg No',
+                  hintStyle:
+                      TextStyle(fontFamily: headerFont, color: numberColor)),
               autofocus: true,
               style: TextStyle(fontFamily: numberFont, color: numberColor),
               keyboardType: TextInputType.text,

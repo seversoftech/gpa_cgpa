@@ -76,7 +76,7 @@ class _GPAHistoryState extends State<GPAHistory> {
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          '${result['fname']}',
+                          '${result['regno']}',
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
