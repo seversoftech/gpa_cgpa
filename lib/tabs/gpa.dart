@@ -249,9 +249,7 @@ class _GpaState extends State<Gpa> with AutomaticKeepAliveClientMixin<Gpa> {
               ),
               decoration: BoxDecoration(
                 color: Colors.purple[100],
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(5.0),
-                ),
+                borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                 border: Border.all(color: listLineColor),
               ),
               child: TextField(
