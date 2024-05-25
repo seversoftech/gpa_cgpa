@@ -9,16 +9,23 @@ import '../fontsColorsETC.dart';
 import '../screens/PopUp.dart';
 import '../screens/calculator.dart';
 
+TextEditingController fname = TextEditingController();
+TextEditingController regno = TextEditingController();
+
 bool enableCalculateButton = false;
 int smesterCount = 0;
 CGPACalculation calculation = CGPACalculation();
 
 class Calculation {
+  final String regno;
+  final String fname;
   final String totalCreditHours;
   final String totalqualityPoints;
   final String cgpaValue;
 
   Calculation({
+    required this.regno,
+    required this.fname,
     required this.totalCreditHours,
     required this.totalqualityPoints,
     required this.cgpaValue,
@@ -52,6 +59,8 @@ class _CGPAState extends State<CGPA> with AutomaticKeepAliveClientMixin {
     List<Map<String, dynamic>> cgpa = await _loadcgpa();
 
     Map<String, dynamic> newCgpa = {
+      'regno': regno.text,
+      'fname': fname.text,
       'totalQualityPoints': calculation.totalqualityPoints,
       'totalCreditHours': calculation.totalCreditHours,
       'cgpaValue': calculation.cgpaValue,
@@ -65,6 +74,8 @@ class _CGPAState extends State<CGPA> with AutomaticKeepAliveClientMixin {
 
   void _addCgpa() async {
     Calculation newCalculation = Calculation(
+      regno: regno.text,
+      fname: fname.text,
       totalCreditHours: calculation.totalCreditHours.toString(),
       totalqualityPoints: calculation.totalQualityPoints.toString(),
       cgpaValue: calculation.cgpaValue,
@@ -74,6 +85,8 @@ class _CGPAState extends State<CGPA> with AutomaticKeepAliveClientMixin {
 
     setState(
       () {
+        fname.clear();
+        regno.clear();
         calculation = CGPACalculation();
         calculation.setNoOfSmesters(0);
         enableCalculateButton = false;

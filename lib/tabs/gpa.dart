@@ -19,7 +19,7 @@ TextEditingController regno = TextEditingController();
 bool? enableCalculateButton;
 
 class Calculation {
-    final String regno;
+  final String regno;
   final String fname;
   final String creditHours;
   final String qualityPoints;
@@ -29,7 +29,7 @@ class Calculation {
   final String gpaStr;
 
   Calculation({
-     required this.regno,
+    required this.regno,
     required this.fname,
     required this.creditHours,
     required this.qualityPoints,
@@ -84,7 +84,7 @@ class _GpaState extends State<Gpa> with AutomaticKeepAliveClientMixin<Gpa> {
 
   void _addResult() async {
     Calculation newCalculation = Calculation(
-      regno:regno.text,
+      regno: regno.text,
       fname: fname.text,
       creditHours: calculation.creditHours.toString(),
       qualityPoints: calculation.qualityPoints.toString(),
@@ -98,9 +98,12 @@ class _GpaState extends State<Gpa> with AutomaticKeepAliveClientMixin<Gpa> {
 
     setState(
       () {
+        fname.clear();
+        regno.clear();
         calculation = MyCalculation();
         calculation.setSubjectNo(0);
         enableCalculateButton = false;
+
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(
             builder: (context) => const Calculator(),
