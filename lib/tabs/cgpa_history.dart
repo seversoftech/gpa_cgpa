@@ -68,8 +68,19 @@ class _CGPAHistoryState extends State<CGPAHistory> {
                   child: ListTile(
                     contentPadding: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 12.0),
-                    title: const Text('CGPA ',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    title: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          '${result['fname']}',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          '${result['regno']}',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                     subtitle: Column(
                       children: [
                         Column(
