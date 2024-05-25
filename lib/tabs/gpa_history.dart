@@ -68,8 +68,19 @@ class _GPAHistoryState extends State<GPAHistory> {
                   child: ListTile(
                     contentPadding: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 12.0),
-                    title: const Text('GPA',
-                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '${result['fname']}',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          '${result['fname']}',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
                     subtitle: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

@@ -2,6 +2,7 @@ import 'package:rxdart/rxdart.dart';
 import '../blocs/bloc.dart';
 
 class MyCalculation {
+  String? fname;
   List<Bloc> subjectList = [];
   double? percentage;
   int? totalNumbers;

@@ -9,13 +9,18 @@ import '../blocs/bloc.dart';
 import '../calculations/calculations.dart';
 import '../fontsColorsETC.dart';
 import '../screens/PopUp.dart';
+import 'gpa.dart';
 
 int subjectCount = 1;
 MyCalculation calculation = MyCalculation();
 
+TextEditingController fname = TextEditingController();
+TextEditingController regno = TextEditingController();
+
 bool? enableCalculateButton;
 
 class Calculation {
+  final String fname;
   final String creditHours;
   final String qualityPoints;
   final String obtainNumbers;
@@ -24,6 +29,7 @@ class Calculation {
   final String gpaStr;
 
   Calculation({
+    required this.fname,
     required this.creditHours,
     required this.qualityPoints,
     required this.obtainNumbers,
@@ -59,6 +65,7 @@ class _GpaState extends State<Gpa> with AutomaticKeepAliveClientMixin<Gpa> {
     List<Map<String, dynamic>> results = await _loadResults();
 
     Map<String, dynamic> newResult = {
+      'fname': fname.text,
       'creditHours': calculation.creditHours,
       'qualityPoints': calculation.qualityPoints,
       'obtainNumbers': calculation.obtainNumbers,
@@ -75,6 +82,7 @@ class _GpaState extends State<Gpa> with AutomaticKeepAliveClientMixin<Gpa> {
 
   void _addResult() async {
     Calculation newCalculation = Calculation(
+      fname: fname.text,
       creditHours: calculation.creditHours.toString(),
       qualityPoints: calculation.qualityPoints.toString(),
       obtainNumbers: calculation.obtainNumbers.toString(),
@@ -221,26 +229,40 @@ class _GpaState extends State<Gpa> with AutomaticKeepAliveClientMixin<Gpa> {
   }
 
   Widget _showResult() {
-    return Container(
-      padding: const EdgeInsets.only(top: 30),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          _rowForResullt(
-              'Credit Hours   :', calculation.creditHours.toString()),
-          _rowForResullt(
-              'Quality Points :', calculation.qualityPoints.toString()),
-          _rowForResullt(
-              'Obtain Marks  :', calculation.obtainNumbers.toString()),
-          _rowForResullt(
-              'Total Marks    :', calculation.totalNumbers.toString()),
-          _rowForResullt(' Percentage    :', "${calculation.percentageStr} %"),
-          _rowForResullt('GPA           :', calculation.gpaStr),
-          InkWell(
-            onTap: _addResult,
-            child: _rowForResullt("", 'SAVE'),
-          )
-        ],
+    return SingleChildScrollView(
+      child: Container(
+        padding: const EdgeInsets.only(top: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            TextField(
+              controller: fname,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Full Name',
+                  hintStyle:
+                      TextStyle(fontFamily: numberFont, color: numberColor)),
+              autofocus: true,
+              style: TextStyle(fontFamily: numberFont, color: numberColor),
+              keyboardType: TextInputType.text,
+            ),
+            _rowForResullt(
+                'Credit Hours   :', calculation.creditHours.toString()),
+            _rowForResullt(
+                'Quality Points :', calculation.qualityPoints.toString()),
+            _rowForResullt(
+                'Obtain Marks  :', calculation.obtainNumbers.toString()),
+            _rowForResullt(
+                'Total Marks    :', calculation.totalNumbers.toString()),
+            _rowForResullt(
+                ' Percentage    :', "${calculation.percentageStr} %"),
+            _rowForResullt('GPA           :', calculation.gpaStr),
+            InkWell(
+              onTap: _addResult,
+              child: _rowForResullt("", 'SAVE'),
+            )
+          ],
+        ),
       ),
     );
   }

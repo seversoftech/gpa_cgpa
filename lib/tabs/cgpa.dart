@@ -207,7 +207,7 @@ class _CGPAState extends State<CGPA> with AutomaticKeepAliveClientMixin {
 
   Widget _showCgpa() {
     return Container(
-      padding: const EdgeInsets.only(top: 30),
+      padding: const EdgeInsets.only(top: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
