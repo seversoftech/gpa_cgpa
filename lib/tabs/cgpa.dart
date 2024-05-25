@@ -223,7 +223,29 @@ class _CGPAState extends State<CGPA> with AutomaticKeepAliveClientMixin {
       padding: const EdgeInsets.only(top: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
+        children: [
+          TextField(
+            controller: fname,
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Full Name',
+                hintStyle:
+                    TextStyle(fontFamily: headerFont, color: numberColor)),
+            autofocus: true,
+            style: TextStyle(fontFamily: numberFont, color: numberColor),
+            keyboardType: TextInputType.text,
+          ),
+          TextField(
+            controller: regno,
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Reg No',
+                hintStyle:
+                    TextStyle(fontFamily: headerFont, color: numberColor)),
+            autofocus: true,
+            style: TextStyle(fontFamily: numberFont, color: numberColor),
+            keyboardType: TextInputType.text,
+          ),
           _rowForResullt(
               'Credit Hours   :', calculation.totalCreditHours.toString()),
           _rowForResullt(
