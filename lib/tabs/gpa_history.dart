@@ -68,8 +68,8 @@ class _GPAHistoryState extends State<GPAHistory> {
                   child: ListTile(
                     contentPadding: const EdgeInsets.symmetric(
                         vertical: 8.0, horizontal: 12.0),
-                    title: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    title: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Text(
                           '${result['fname']}',
