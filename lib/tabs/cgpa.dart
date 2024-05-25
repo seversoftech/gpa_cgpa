@@ -224,27 +224,49 @@ class _CGPAState extends State<CGPA> with AutomaticKeepAliveClientMixin {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          TextField(
-            controller: fname,
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Full Name',
-                hintStyle:
-                    TextStyle(fontFamily: headerFont, color: numberColor)),
-            autofocus: true,
-            style: TextStyle(fontFamily: numberFont, color: numberColor),
-            keyboardType: TextInputType.text,
+          Container(
+            margin: const EdgeInsets.only(left: 5, top: 10, right: 5),
+            padding: const EdgeInsets.only(left: 10, right: 5),
+            decoration: BoxDecoration(
+              color: Colors.purple[100],
+              borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+              border: Border.all(
+                color: listLineColor,
+              ),
+            ),
+            child: TextField(
+              controller: fname,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Full Name',
+                  hintStyle:
+                      TextStyle(fontFamily: numberFont, color: numberColor)),
+              autofocus: true,
+              style: TextStyle(fontFamily: numberFont, color: numberColor),
+              keyboardType: TextInputType.text,
+            ),
           ),
-          TextField(
-            controller: regno,
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Reg No',
-                hintStyle:
-                    TextStyle(fontFamily: headerFont, color: numberColor)),
-            autofocus: true,
-            style: TextStyle(fontFamily: numberFont, color: numberColor),
-            keyboardType: TextInputType.text,
+          Container(
+            margin: const EdgeInsets.only(left: 5, top: 10, right: 5),
+            padding: const EdgeInsets.only(left: 10, right: 5),
+            decoration: BoxDecoration(
+              color: Colors.purple[100],
+              borderRadius: const BorderRadius.all(Radius.circular(5.0)),
+              border: Border.all(
+                color: listLineColor,
+              ),
+            ),
+            child: TextField(
+              controller: regno,
+              decoration: InputDecoration(
+                  border: InputBorder.none,
+                  hintText: 'Reg No',
+                  hintStyle:
+                      TextStyle(fontFamily: numberFont, color: numberColor)),
+              autofocus: true,
+              style: TextStyle(fontFamily: numberFont, color: numberColor),
+              keyboardType: TextInputType.text,
+            ),
           ),
           _rowForResullt(
               'Credit Hours   :', calculation.totalCreditHours.toString()),

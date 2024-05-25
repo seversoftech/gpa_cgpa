@@ -258,7 +258,7 @@ class _GpaState extends State<Gpa> with AutomaticKeepAliveClientMixin<Gpa> {
                     border: InputBorder.none,
                     hintText: 'Enter full Name',
                     hintStyle:
-                        TextStyle(fontFamily: headerFont, color: numberColor)),
+                        TextStyle(fontFamily: numberFont, color: numberColor)),
                 autofocus: true,
                 style: TextStyle(fontFamily: numberFont, color: numberColor),
                 keyboardType: TextInputType.text,
@@ -280,7 +280,7 @@ class _GpaState extends State<Gpa> with AutomaticKeepAliveClientMixin<Gpa> {
                     border: InputBorder.none,
                     hintText: 'Enter Matric. No',
                     hintStyle:
-                        TextStyle(fontFamily: headerFont, color: numberColor)),
+                        TextStyle(fontFamily: numberFont, color: numberColor)),
                 autofocus: true,
                 style: TextStyle(fontFamily: numberFont, color: numberColor),
                 keyboardType: TextInputType.text,
