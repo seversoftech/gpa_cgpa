@@ -104,7 +104,7 @@ class _GPAHistoryState extends State<GPAHistory> {
                           builder: (context) => AlertDialog(
                             title: const Text('Delete Result'),
                             content: const Text(
-                                'Are you sure you want to delete this result?'),
+                                'Are you sure you want to delete this GPA?'),
                             actions: [
                               TextButton(
                                 onPressed: () =>
@@ -138,8 +138,7 @@ class _GPAHistoryState extends State<GPAHistory> {
             context: context,
             builder: (context) => AlertDialog(
               title: const Text('Clear All'),
-              content:
-                  const Text('Are you sure you want to clear all results?'),
+              content: const Text('Are you sure you want to clear all items?'),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.of(context).pop(false),
